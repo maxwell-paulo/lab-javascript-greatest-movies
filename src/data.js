@@ -2002,34 +2002,14 @@ const movies = [
   },
 ];
 
-// function getAllDirectors(moviesArray) {
-// tentativa de arrow function anonima frustada
-// const allDirectors = moviesArray.map((currentElement) => {
-//   return currentElement.director;
-// });
-// tentativa de callback anonima frustada
-// const allDirectors = moviesArray.map(function (currentElement) {
-//   return currentElement.director;
-// });
-// Callback que deu certo
-//   function todosDiretores(currentElement) {
-//     return currentElement.director;
-//   }
-//   const allDirectors = moviesArray.map(todosDiretores);
-//   return allDirectors;
-// }
-// console.log(getAllDirectors(movies));
-
-function scoresAverage(moviesArray) {
-  let finalSum = 0;
-  function todasAsNotas(currentElement) {
-    return currentElement.score;
-  }
-  const allScores = moviesArray.map(todasAsNotas);
-  let finalAvarage = allScores.reduce(getSum, 0);
-
-  function getSum(total, num) {
-    return total + Math.round(num);
-  }
+function orderAlphabetically(moviesArray) {
+  moviesArrayCopy2 = [...moviesArray];
+  first20Movies = moviesArrayCopy2.slice(0, 20);
+  const onlyTitles = first20Movies.map((movie) => movie.title);
+  onlyTitles.sort((a, b) => {
+    return a.localeCompare(b);
+  });
+  return onlyTitles;
 }
-console.log(scoresAverage(movies));
+
+console.log(orderAlphabetically(movies));
